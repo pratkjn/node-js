@@ -36,6 +36,22 @@ function requestHandler(req, res) {
     res.end();
 }
 
-exports = requestHandler;
-//above and below texts are of same meaning
+//below all statements have same meaning
+
 // module.exports = requestHandler;
+// module.exports = {
+//     handler : requestHandler,
+//     sampleText : 'sampleText'
+// }
+
+// module.exports.handler = requestHandler;
+// module.exports.sampleText = 'sampleText';
+
+exports = requestHandler;
+// exports = {
+//     handler: requestHandler,
+//     sampleText: 'sampleText'
+// }
+
+// exports.handler = requestHandler;
+// exports.sampleText = 'sampleText';
