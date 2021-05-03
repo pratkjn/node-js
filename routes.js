@@ -47,7 +47,7 @@ function requestHandler(req, res) {
 // module.exports.handler = requestHandler;
 // module.exports.sampleText = 'sampleText';
 
-exports = requestHandler;
+module.exports = requestHandler;
 // exports = {
 //     handler: requestHandler,
 //     sampleText: 'sampleText'
