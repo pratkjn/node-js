@@ -1,19 +1,24 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
 
-app.use('/', (req, res, next) => {
-    console.log('This code will always run');
-    next();
-});
+//Below is the parsing the request body section
+app.use(bodyParser.urlencoded({ extended: false }));
+
+//Below are the routing sections
 
 app.use('/add-product', (req, res, next) => {
-    console.log('In add-product middleware');
-    res.send('<h1>Welcome! Hello from add-product</h1>');
+    res.send('<form action="product" method="POST"><input type="text" name="title"/><button type="submit">Submit</button></form>');
+});
+
+app.use('/product', (req, res, next) => {
+    console.log(req.body);
+    console.log(req.body.title);
+    res.redirect('/');
 });
 
 app.use('/', (req, res, next) => {
-    console.log('In 1st middleware');
     res.send('<h1>Welcome! Hello from Express</h1>');
 });
 
